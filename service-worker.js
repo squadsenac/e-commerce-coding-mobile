@@ -1,11 +1,20 @@
 var cacheName = 'LojadeMoveis+-v1.0';
 
 
- if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js')
+ /* if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./service-worker.js')
     .then(reg => console.info('registered sw', reg))
     .catch(err => console.error('error registering sw', err));
-} 
+}  */
+
+navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+			.then(function (registration)
+			{
+			console.log('Service worker registered successfully');
+			}).catch(function (e)
+			{
+			console.error('Error during service worker registration:', e);
+			});
 
 self.addEventListener('install', event => {
 
@@ -17,14 +26,14 @@ self.addEventListener('install', event => {
 
         './index.html',
 
-        '.assets/css/animate.css',
-        '.assets/css/bootsnav.css',
-        '.assets/css/bootstrap.min.css',
-        '.assets/css/font-awesome.min.css',
-        '.assets/css/linearicons.css',
-        '.assets/css/owl.carousel.min.css',
-        '.assets/css/owl.theme.default.min.css',
-        '.assets/css/responsive.css',
+        './assets/css/animate.css',
+        './assets/css/bootsnav.css',
+        './assets/css/bootstrap.min.css',
+        './assets/css/font-awesome.min.css',
+        './assets/css/linearicons.css',
+        './assets/css/owl.carousel.min.css',
+        './assets/css/owl.theme.default.min.css',
+        './assets/css/responsive.css',
         './assets/css/style.css',
 
         './assets/fonts/fontawesome-webfont.eot',

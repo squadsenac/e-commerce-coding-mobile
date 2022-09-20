@@ -83,7 +83,54 @@
 		<!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
-		
+		<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+				.then(function (registration)
+				{
+				console.log('Service worker registered successfully');
+				}).catch(function (e)
+				{
+				console.error('Error during service worker registration:', e);
+				});
+			}
+			/* let newWorker;
+
+			if ('serviceWorker' in navigator) {
+
+			  navigator.serviceWorker.register('./service-worker.js', { scope: '/'}).then(reg => {
+
+				reg.addEventListener('updatefound', () => {
+
+				  // A wild service worker has appeared in reg.installing!
+
+				  newWorker = reg.installing;
+
+				  newWorker.addEventListener('statechange', () => {
+
+					// Has network.state changed?
+
+				  });
+
+				});
+
+			  });
+
+			  let refreshing;
+
+			  navigator.serviceWorker.addEventListener('controllerchange', function () {
+
+				if (refreshing) return;
+
+				window.location.reload();
+
+				refreshing = true;
+
+			  });
+
+			} */
+
+		</script>
 		
 	
 		<!--welcome-hero start -->
@@ -885,46 +932,6 @@
         
         <!--Custom JS-->
         <script src="assets/js/custom.js"></script>
-
-		<script>
-
-			let newWorker;
-
-			if ('serviceWorker' in navigator) {
-
-			  navigator.serviceWorker.register('./service-worker.js').then(reg => {
-
-				reg.addEventListener('updatefound', () => {
-
-				  // A wild service worker has appeared in reg.installing!
-
-				  newWorker = reg.installing;
-
-				  newWorker.addEventListener('statechange', () => {
-
-					// Has network.state changed?
-
-				  });
-
-				});
-
-			  });
-
-			  let refreshing;
-
-			  navigator.serviceWorker.addEventListener('controllerchange', function () {
-
-				if (refreshing) return;
-
-				window.location.reload();
-
-				refreshing = true;
-
-			  });
-
-			}
-
-		</script>
         
     </body>
 	
