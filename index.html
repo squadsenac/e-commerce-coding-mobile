@@ -41,6 +41,36 @@
         
         <!--responsive.css-->
         <link rel="stylesheet" href="assets/css/responsive.css">
+
+		<link rel="manifest" href="manifest.json">
+  
+  
+  
+  
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="msapplication-TileImage" content="assets/icons/android/mipmap-xxxhdpi/icone_e_biz.png">
+		<meta name="msapplication-TileColor" content="#31506F">
+		<meta name="theme-color" content="#4D5360" />
+		<link rel="shortcut icon" sizes="192x192" href="assets/icons/android/mipmap-xxxhdpi/icone_e_biz.png">
+		<link rel="shortcut icon" sizes="128x128" href="assets/icons/Assets.xcassets/AppIcon.appiconset/_/128.png">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="PWA Teste">
+		<link rel="apple-touch-icon" href="assets/icons/Assets.xcassets/AppIcon.appiconset/_/144.png">
+		<link rel="apple-touch-icon" href="assets/icons/playstore.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="assets/icons/Assets.xcassets/AppIcon.appiconset/_/152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/Assets.xcassets/AppIcon.appiconset/_/180.png">
+		<link rel="apple-touch-icon" sizes="167x167" href="assets/icons/Assets.xcassets/AppIcon.appiconset/_/167.png">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+
+		<link href="assets/images/ios/ipad.png" sizes="3200x4267" rel="apple-touch-startup-image" />
+		<link href="assets/images/ios/ipadpro.png" sizes="3475x4633" rel="apple-touch-startup-image" />
+		<link href="assets/images/ios/ipadpro2.png" sizes="4267x5692" rel="apple-touch-startup-image" />
+		<link href="assets/images/ios/Iphone6Plus.png" sizes="2588x4600" rel="apple-touch-startup-image" />
+		<link href="assets/images/ios/Iphone7.png" sizes="1563x2779" rel="apple-touch-startup-image" />
+		<link href="assets/images/ios/IphoneSE-05.png" sizes="1333x2367" rel="apple-touch-startup-image" />
+		<link href="assets/images/ios/IphoneX-05.png" sizes="2344x5075" rel="apple-touch-startup-image" />
         
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -858,6 +888,46 @@
         
         <!--Custom JS-->
         <script src="assets/js/custom.js"></script>
+
+		<script>
+
+			let newWorker;
+
+			if ('serviceWorker' in navigator) {
+
+			  navigator.serviceWorker.register('./service-worker.js').then(reg => {
+
+				reg.addEventListener('updatefound', () => {
+
+				  // A wild service worker has appeared in reg.installing!
+
+				  newWorker = reg.installing;
+
+				  newWorker.addEventListener('statechange', () => {
+
+					// Has network.state changed?
+
+				  });
+
+				});
+
+			  });
+
+			  let refreshing;
+
+			  navigator.serviceWorker.addEventListener('controllerchange', function () {
+
+				if (refreshing) return;
+
+				window.location.reload();
+
+				refreshing = true;
+
+			  });
+
+			}
+
+		</script>
         
     </body>
 	

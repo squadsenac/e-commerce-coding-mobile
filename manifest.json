@@ -1,6 +1,12 @@
 {
-  "name": "Cantinho da Ciene",
-  "short_name": "Cantinho da Ciene",
+  "start_url": "https://kaleidoscopic-sable-7df1fb.netlify.app/",
+  "scope": "https://kaleidoscopic-sable-7df1fb.netlify.app/",
+  "display": "standalone",
+  "background_color": "#31506F",
+  "orientation": "any",
+  "theme_color": "#4D5360",
+  "name": "Loja de Moveis",
+  "short_name": "Lojas de Moveis",
   "icons": [
     {
       "src": "assets/icons/Assets.xcassets/AppIcon.appiconset/_/128.png",
@@ -31,7 +37,7 @@
       "src": "assets/icons/Assets.xcassets/AppIcon.appiconset/_/192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     },
     {
       "src": "assets/icons/Assets.xcassets/AppIcon.appiconset/_/256.png",
@@ -48,10 +54,5 @@
       "sizes": "1024x1024",
       "type": "image/png"
     }
-  ],
-  "start_url": "index.html",
-  "display": "fullscreen",
-  "background_color": "#8c2c14",
-  "theme_color": "#bde4f3",
-  "orientation": "any"
+  ]
 }
