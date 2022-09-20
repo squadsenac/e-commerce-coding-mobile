@@ -1,12 +1,11 @@
 var cacheName = 'LojadeMoveis+-v1.0';
 
-//Registro não aproveitado
 
-/* if ('serviceWorker' in navigator) {
+ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js')
     .then(reg => console.info('registered sw', reg))
     .catch(err => console.error('error registering sw', err));
-} */
+} 
 
 self.addEventListener('install', event => {
 
