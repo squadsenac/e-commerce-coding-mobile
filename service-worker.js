@@ -1,12 +1,11 @@
 var cacheName = 'LojadeMoveis+-v1.0';
 
-//Registro não aproveitado
 
-/* if ('serviceWorker' in navigator) {
+ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js')
     .then(reg => console.info('registered sw', reg))
     .catch(err => console.error('error registering sw', err));
-} */
+} 
 
 self.addEventListener('install', event => {
 
@@ -202,23 +201,14 @@ self.addEventListener('fetch', (event) => {
       }
     })());
   }
-  // This is the "serving cached media" service worker
-
-const CACHE = "pwabuilder-offline";
-
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
-
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
 });
+  // This is the "serving cached media" service worker
 
 workbox.loadModule('workbox-cacheable-response');
 workbox.loadModule('workbox-range-requests');
 
 workbox.routing.registerRoute(
-  /.*\.mp4/,
+  /.mp4/,
   new workbox.strategies.CacheFirst({
     cacheName: CACHE,
     plugins: [
@@ -227,5 +217,4 @@ workbox.routing.registerRoute(
     ],
   }),
 );
-});
 });
