@@ -201,23 +201,14 @@ self.addEventListener('fetch', (event) => {
       }
     })());
   }
-  // This is the "serving cached media" service worker
-
-const CACHE = "pwabuilder-offline";
-
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
-
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
 });
+  // This is the "serving cached media" service worker
 
 workbox.loadModule('workbox-cacheable-response');
 workbox.loadModule('workbox-range-requests');
 
 workbox.routing.registerRoute(
-  /.*\.mp4/,
+  /.mp4/,
   new workbox.strategies.CacheFirst({
     cacheName: CACHE,
     plugins: [
@@ -226,5 +217,4 @@ workbox.routing.registerRoute(
     ],
   }),
 );
-});
 });
