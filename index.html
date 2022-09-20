@@ -84,16 +84,16 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 		<script>
-		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
-				.then(function (registration)
-				{
-				console.log('Service worker registered successfully');
-				}).catch(function (e)
-				{
-				console.error('Error during service worker registration:', e);
-				});
-			}
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register('/service-worker.js', { scope: 'https://kaleidoscopic-sable-7df1fb.netlify.app/' })
+					.then(function (registration)
+					{
+					console.log('Service worker registered successfully');
+					}).catch(function (e)
+					{
+					console.error('Error during service worker registration:', e);
+					});
+				}
 			/* let newWorker;
 
 			if ('serviceWorker' in navigator) {
