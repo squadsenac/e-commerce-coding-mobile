@@ -83,56 +83,12 @@
 		<!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
-		<script>
-			if ('serviceWorker' in navigator) {
-				navigator.serviceWorkerContainer
-					.register('service-worker.js')
-					.then(function (registration)
-					{
-					console.log('Service worker registered successfully');
-					}).catch(function (e)
-					{
-					console.error('Error during service worker registration:', e);
-					});
-				}
-			/* let newWorker;
+		<script type="module">
+			import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
 
-			if ('serviceWorker' in navigator) {
-
-			  navigator.serviceWorker.register('./service-worker.js', { scope: '/'}).then(reg => {
-
-				reg.addEventListener('updatefound', () => {
-
-				  // A wild service worker has appeared in reg.installing!
-
-				  newWorker = reg.installing;
-
-				  newWorker.addEventListener('statechange', () => {
-
-					// Has network.state changed?
-
-				  });
-
-				});
-
-			  });
-
-			  let refreshing;
-
-			  navigator.serviceWorker.addEventListener('controllerchange', function () {
-
-				if (refreshing) return;
-
-				window.location.reload();
-
-				refreshing = true;
-
-			  });
-
-			} */
-
+			const el = document.createElement('pwa-update');
+			document.body.appendChild(el);
 		</script>
-		
 	
 		<!--welcome-hero start -->
 		<header id="home" class="welcome-hero">
