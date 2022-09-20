@@ -1,5 +1,6 @@
 {
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#31506F",
   "orientation": "any",
